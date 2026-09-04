@@ -129,6 +129,8 @@ First read `manju-h3-production` for the project routing rules (drama vs action)
 | B | Generate TTS voice sample and use as reference | `mimo-audio-api` |
 | C | No voice reference; rely on prompt description | *(none)* |
 
+Default rule: do not add `ref_audios` or reference-audio files unless the user explicitly requests voice anchoring/voice consistency or explicitly provides and approves those audio references.
+
 Ask: "要不要用 `h3-prompt-desk` 做一轮格式校验？" before moving to Stage 5.
 
 ## Stage 5 — Video Generation
