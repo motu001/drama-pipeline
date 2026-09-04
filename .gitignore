@@ -1,0 +1,17 @@
+# Local/generated project outputs
+video/
+outputs/
+*.mp4
+*.mov
+*.wav
+*.png
+*.jpg
+*.jpeg
+
+# Local secrets and machine state
+.env
+*.key
+*.token
+__pycache__/
+.venv/
+
