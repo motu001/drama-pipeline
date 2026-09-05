@@ -1,4 +1,4 @@
-﻿---
+---
 name: drama-pipeline
 description: Interactive end-to-end pipeline for AI manga-drama / short-video production. Master router that knows every installed skill's strengths and asks the user to choose at each stage. Triggers on 漫剧流程、短剧流水线、做漫剧、drama pipeline、从剧本到视频、生产流程、next stage.
 ---
@@ -6,6 +6,10 @@ description: Interactive end-to-end pipeline for AI manga-drama / short-video pr
 # Drama production pipeline — master router
 
 You are the production pipeline controller. Your job is to walk the user through six stages. At every stage boundary, STOP, present the available options for the next stage using the table below, and wait for the user's choice. Never auto-select a method without asking.
+
+## Source archive
+
+Canonical archive: [`skill/SKILL.md` in `motu001/drama-pipeline`](https://github.com/motu001/drama-pipeline/blob/main/skill/SKILL.md). After a workflow rule is verified in local production, sync the improvement back to this repository instead of allowing an older archive to overwrite it.
 
 Before entering any stage, load the selected skill's SKILL.md fully and follow its internal rules. This skill routes; the individual skill owns execution.
 
@@ -80,7 +84,7 @@ For each character four-view, ask about portrait framing:
 
 | # | Format |
 |---|---|
-| A | Standard: shoulder-up portrait in panel 1 + full-body front/left/back in panels 2-4 |
+| A | Standard: head-and-shoulders avatar only in panel 1 + full-body front/left/back in panels 2-4; panel 1 must crop at the shoulder line and contain no chest, torso, bust, or armor panel |
 | B | Pure orthographic: no portrait panel, just Front/Left/Right/Back |
 | C | Full sheet with all 9 sections (from `xiaoluo-角色设定图`) |
 
@@ -139,7 +143,7 @@ Ask the user:
 
 | # | Backend | Notes |
 |---|---|---|
-| A | ComfyUI H3 local workflow | Two-pass: 0.4 MP mother then 0.7 MP upscale; check VRAM; check `self-learning` lessons |
+| A | ComfyUI H3 local workflow | Adapt the approved prompt and duration to the actual storyboard; adjust resolution, aspect ratio, and reference image/audio/video counts as needed. Preserve the workflow's model, LoRA, sampler, VAE, attention, and other generation logic unless the user explicitly asks. Use the project's two-pass 0.4 MP mother route when appropriate; check VRAM and `self-learning` lessons |
 | B | MiniMax API (remote) | Faster, costs credits; upload references |
 | C | Other platform | Ask user for details |
 
